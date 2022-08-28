@@ -7,6 +7,15 @@ Metrics/AbcSize:
   Max: 25
   Exclude:
     - 'spec/support/**/*.rb'
+    - 'lib/tasks/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/tasks/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'lib/tasks/*'
 
 Rails/HasAndBelongsToMany:
   Enabled: false
