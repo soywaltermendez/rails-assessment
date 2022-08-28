@@ -1,0 +1,33 @@
+<%= form_tag(@filter_path, method: :get) do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <h3>
+    <%= I18n.t("views.filters.title") %>
+  </h3>
+  <div class="row">
+    <div class="col-md-6 col-lg-3 mb-3">
+      <%= label_tag :min, I18n.t("views.filters.min"), class: "sr-only", for: "min_amount" %>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">$</div>
+        </div>
+        <%= text_field_tag :min_amount, params[:min_amount], class: "form-control", placeholder: "min", id: "min_amount" %>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-3">
+      <%= label_tag :min, I18n.t("views.filters.max"), class: "sr-only", for: "max_amount" %>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">$</div>
+        </div>
+        <%= text_field_tag :max_amount, params[:max_amount], class: "form-control", placeholder: "max", id: "max_amount" %>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-3">
+      <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+        <i aria-hidden="true" class="fa fa-search"></i>
+        <%= I18n.t("views.filters.btn") %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

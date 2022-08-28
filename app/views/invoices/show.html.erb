@@ -1,0 +1,71 @@
+<div class="container">
+  <h1 class="banner-title vertical-align p-0 m-0">
+    <%= I18n.t("model.invoice.plural") %>
+  </h1>
+  <hr class="divider"/>
+  <div class="row">
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.invoices.uuid")}:" %>
+      </strong>
+      <%= @invoice.invoice_uuid %>
+    </div>
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.invoices.amount")}:" %>
+      </strong>
+      <%= number_to_currency(@invoice.amount_cents) + " " + @invoice.amount_currency %>
+    </div>
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.invoices.emitted_at")}:" %>
+      </strong>
+      <%= @invoice.emitted_at %>
+    </div>
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.invoices.expires_at")}:" %>
+      </strong>
+      <%= @invoice.expires_at %>
+    </div>
+  </div>
+  <hr class="divider"/>
+  <h3>
+    <%= I18n.t("views.invoices.emitter") %>
+  </h3>
+  <div class="row">
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.persons.name")}:" %>
+      </strong>
+      <%= @invoice.emitter.name %>
+    </div>
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.persons.rfc")}:" %>
+      </strong>
+      <%= @invoice.emitter.rfc %>
+    </div>
+  </div>
+  <hr class="divider"/>
+  <h3>
+    <%= I18n.t("views.invoices.emitter") %>
+  </h3>
+  <div class="row">
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.persons.name")}:" %>
+      </strong>
+      <%= @invoice.receiver.name %>
+    </div>
+    <div class="form-group col-sm-12 col-md-6">
+      <strong>
+        <%= "#{I18n.t("views.persons.rfc")}:" %>
+      </strong>
+      <%= @invoice.receiver.rfc %>
+    </div>
+  </div>
+  <div class="actions py-3">
+    <%= link_to I18n.t("views.forms.return"), root_path, class: "btn btn-secondary" %>
+  </div>
+</div>

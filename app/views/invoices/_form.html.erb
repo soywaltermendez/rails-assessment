@@ -1,0 +1,27 @@
+<%= form_with(model: invoice, local: true) do |form| %>
+  <% if invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(invoice.errors.count, "error") %>
+        bugs found:
+      </h2>
+      <ul>
+        <% invoice.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="form-group files color">
+      <%= form.label :xmls, I18n.t("views.invoices.input"), class: "sr-only", for: "xmls" %>
+      <%= form.file_field :xmls, name: "xmls[]", multiple: true, type: "file", accept: "text/xml", class: "form-control" %>
+    </div>
+  </div>
+  <div class="actions pt-3">
+    <%= link_to I18n.t("views.forms.cancel"), root_path, class: "btn btn-secondary" %>
+    <%= form.submit I18n.t("views.forms.save"), class: "btn btn-primary" %>
+  </div>
+<% end %>

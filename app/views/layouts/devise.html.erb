@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Higo</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <meta name="description"/>
+    <meta name="author"/>
+    <link href="https://getbootstrap.com/docs/4.0/examples/pricing/" rel="canonical">/</link>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <!-- Custom styles for this template
+    -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+</html>
+<body class="login-body">
+  <%= yield %>
+</body>

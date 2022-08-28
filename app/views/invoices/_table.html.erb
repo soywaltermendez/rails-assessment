@@ -1,0 +1,80 @@
+<div class="container">
+  <%= render "components/filters" %>
+  <hr class="divider"/>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <h1 class="banner-title vertical-align p-0 m-0 float-left">
+        <%= I18n.t("model.invoice.plural") %>
+      </h1>
+      <%= link_to I18n.t("views.invoices.new"), new_invoice_path, class: "btn btn-primary jumping float-right" %>
+    </div>
+  </div>
+  <% if @invoices.empty? %>
+    <div class="py-5">
+      <p class="text-center h5 legend mb-5">
+        <%= I18n.t("views.invoices.not_fount") %>
+        <br/>
+        <%= I18n.t("views.invoices.start") %>
+        <div class="text-center mt-3">
+          <%= link_to I18n.t("views.invoices.new"), new_invoice_path, class: "btn btn-primary jumping" %>
+        </div>
+      </p>
+    </div>
+  <% else %>
+    <div class="table-container">
+      <table class="table table-striped table-scrolling">
+        <thead>
+          <tr>
+            <th>
+              <%= I18n.t("views.invoices.uuid") %>
+            </th>
+            <th>
+              <%= I18n.t("views.invoices.amount") %>
+            </th>
+            <th>
+              <%= I18n.t("views.invoices.emitter") %>
+            </th>
+            <th>
+              <%= I18n.t("views.invoices.emitted_at") %>
+            </th>
+            <th>
+              <%= I18n.t("views.invoices.expires_at") %>
+            </th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @invoices.each do |invoice| %>
+            <tr>
+              <td>
+                <%= invoice.invoice_uuid %>
+              </td>
+              <td>
+                <%= number_to_currency(invoice.amount_cents) + " " + invoice.amount_currency %>
+              </td>
+              <td>
+                <%= link_to invoice.emitter.name, invoice.emitter, class: "dropdown-item" %>
+              </td>
+              <td>
+                <%= invoice.emitted_at %>
+              </td>
+              <td>
+                <%= invoice.expires_at %>
+              </td>
+              <td class="text-right">
+                <%= link_to I18n.t("views.forms.see"), invoice, class: "dropdown-item" %>
+                <%= link_to I18n.t("views.forms.delete"), invoice_path(invoice), class: "dropdown-item", method: :delete, data: { confirm: "¿Are you sure?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= will_paginate(@invoices, renderer: WillPaginate::ActionView::LinkRenderer, previous_label: "Anterior", next_label: "Siguiente") %>
+    <div class="text-center mt-3">
+      <div class="w-25 d-inline-block">
+        Showing #{select_tag :per_page, options_for_select([5, 10, 20, 50, 100], @per_page), onchange: "if(this.value){window.location='?per_page='+this.value;}"} per page
+      </div>
+    </div>
+  <% end %>
+</div>
