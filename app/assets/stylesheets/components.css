@@ -1,0 +1,51 @@
+html,
+body {
+    height: 100%;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    border: 0;
+}
+
+@media (min-width: 768px) {
+    .mr-md-auto {
+        margin-right: auto !important;
+    }
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.table-container {
+    max-width: 100%;
+    overflow: scroll;
+}
+
+.table-scrolling {
+    overflow: hidden;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+}
