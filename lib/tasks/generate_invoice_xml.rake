@@ -5,10 +5,9 @@ require 'builder'
 namespace :xml do
   desc 'Generate invoice with fake data'
   task generate_invoice: [:environment] do
-
     def invoice_xml(invoice_uuid)
-      xml = Builder::XmlMarkup.new( indent: 2 )
-      xml.instruct! :xml, encoding: "UTF-8", version: '1.0'
+      xml = Builder::XmlMarkup.new(indent: 2)
+      xml.instruct! :xml, encoding: 'UTF-8', version: '1.0'
       xml.hash do |hash|
         hash.invoice_uuid invoice_uuid
         hash.status 'active'
@@ -34,8 +33,6 @@ namespace :xml do
     end
 
     invoice_uuid = SecureRandom.uuid
-    File.open("public/20220811012132-invoices/#{invoice_uuid}.xml", 'w') do |f|
-      f.write(invoice_xml(invoice_uuid))
-    end
+    File.write("public/20220811012132-invoices/#{invoice_uuid}.xml", invoice_xml(invoice_uuid))
   end
 end
