@@ -19,8 +19,6 @@ class InvoiceImportJob < ApplicationJob
         handle_xml(xml_json)
       end
     end
-
-    InvoiceMailer.confirmation(current_user.email).deliver
   end
 
   private
