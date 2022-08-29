@@ -40,8 +40,10 @@ RSpec.describe InvoicesController, type: :controller do
     it 'create invoice' do
       invoice_json = {
         user: @user,
-        emitter: 'test',
-        receiver: 'test',
+        emitter_name: 'test',
+        emitter_rfc: 'test',
+        receiver_name: 'test',
+        receiver_rfc: 'test',
         invoice_uuid: 'test',
         amount_cents: 10,
         amount_currency: 'test',

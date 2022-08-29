@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hash>
   <invoice-uuid>7f91c616122d0908a3570a857e4075028441</invoice-uuid>
+  <cfdi-digital-stamp>sda78as7das7d8as78da7s89d</cfdi-digital-stamp>
   <emitter>
     <rfc>a67b0bbcaf8c6891afb69a849a413a9784ba</rfc>
     <name>Emitter a67b0bbc</name>

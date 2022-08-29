@@ -36,13 +36,23 @@
     </div>
 
     <div class="form-group col-sm-12 col-md-6">
-      <%= form.label :emitter, "Emmiter" %>
-      <%= form.text_field :emitter, { class: "form-control", required: true, value: invoice&.emitter&.name } %>
+      <%= form.label :emitter_name, "Emmiter" %>
+      <%= form.text_field :emitter_name, { class: "form-control", required: true, value: invoice&.emitter&.name } %>
     </div>
 
     <div class="form-group col-sm-12 col-md-6">
-      <%= form.label :receiver, "Receiver" %>
-      <%= form.text_field :receiver, { class: "form-control", required: true, value: invoice&.receiver&.name } %>
+      <%= form.label :emitter_rfc, "Emmiter RFC" %>
+      <%= form.text_field :emitter_rfc, { class: "form-control", required: true, value: invoice&.emitter&.rfc } %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :receiver_name, "Receiver" %>
+      <%= form.text_field :receiver_name, { class: "form-control", required: true, value: invoice&.receiver&.name } %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :receiver_rfc, "Receiver RFC" %>
+      <%= form.text_field :receiver_rfc, { class: "form-control", required: true, value: invoice&.receiver&.rfc } %>
     </div>
 
     <div class="form-group col-sm-12 col-md-6">

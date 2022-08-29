@@ -34,8 +34,8 @@ class InvoicesController < ApplicationController
   def create
     invoice_json = {
       user: current_user,
-      emitter: Person.find_or_create_by(name: invoice_params[:emitter]),
-      receiver: Person.find_or_create_by(name: invoice_params[:receiver]),
+      emitter: Person.find_or_create_by(name: invoice_params[:emitter_name], rfc: invoice_params[:emitter_rfc]),
+      receiver: Person.find_or_create_by(name: invoice_params[:receiver_name], rfc: invoice_params[:receiver_rfc]),
       invoice_uuid: invoice_params[:invoice_uuid],
       cfdi_digital_stamp: invoice_params[:cfdi_digital_stamp],
       amount_cents: invoice_params[:amount_cents],
@@ -53,8 +53,8 @@ class InvoicesController < ApplicationController
 
   def update
     invoice_json = {
-      emitter: Person.find_or_create_by(name: invoice_params[:emitter]),
-      receiver: Person.find_or_create_by(name: invoice_params[:receiver]),
+      emitter: Person.find_or_create_by(name: invoice_params[:emitter_name], rfc: invoice_params[:emitter_rfc]),
+      receiver: Person.find_or_create_by(name: invoice_params[:receiver_name], rfc: invoice_params[:receiver_rfc]),
       invoice_uuid: invoice_params[:invoice_uuid],
       cfdi_digital_stamp: invoice_params[:cfdi_digital_stamp],
       amount_cents: invoice_params[:amount_cents],
@@ -101,8 +101,10 @@ class InvoicesController < ApplicationController
                                     :cfdi_digital_stamp,
                                     :amount_cents,
                                     :amount_currency,
-                                    :emitter,
-                                    :receiver,
+                                    :emitter_name,
+                                    :emitter_rfc,
+                                    :receiver_name,
+                                    :receiver_rfc,
                                     :emitted_at,
                                     :expires_at)
   end
