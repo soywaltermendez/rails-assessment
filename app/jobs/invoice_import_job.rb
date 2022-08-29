@@ -5,7 +5,6 @@ require 'nokogiri'
 class InvoiceImportJob < ApplicationJob
   queue_as :default
   rescue_from Exception do |exception|
-    InvoiceMailer.error(@current_user.email, exception).deliver
     Rails.logger.error exception
   end
 
