@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <invoice-uuid>7f91c616122d0908a3570a857e4075028441</invoice-uuid>
+  <emitter>
+    <rfc>a67b0bbcaf8c6891afb69a849a413a9784ba</rfc>
+    <name>Emitter a67b0bbc</name>
+  </emitter>
+  <receiver>
+    <rfc>dad748df7cb60f73d79542233e3a785203fa</rfc>
+    <name>Receiver dad748df</name>
+  </receiver>
+  <amount-cents type="integer">297734</amount-cents>
+  <amount-currency>MXN</amount-currency>
+  <emitted-at type="date">2022-02-13</emitted-at>
+  <expires-at type="date">2022-06-13</expires-at>
+</hash>

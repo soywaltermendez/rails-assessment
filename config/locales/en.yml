@@ -31,3 +31,52 @@
 
 en:
   hello: "Hello world"
+  model:
+    invoice:
+      plural: Invoices
+      create: Invoice created.
+      update: Invoice updated.
+      destroy: Invoice deleted successfully.
+      not_exist: This invoice doesnt exist.
+    person:
+      singular: Person
+  invoice_mailer:
+    confirmation:
+      subject: Processed invoices
+      body: Your invoice upload process finished
+    error:
+      subject: Upload invoices error
+      body: Please try later
+  views:
+    filters:
+      title: Filter by amount
+      min: Min amount
+      max: Max amount
+      btn: Search
+    forms:
+      qr: QR
+      save: Save
+      cancel: Cancel
+      see: See
+      edit: Edit
+      delete: Delete
+      return: Return
+    invoices:
+      input: Upload your xml files
+      new: New Invoice
+      edit: Edit Invoice
+      import: Import Invoices
+      not_fount: No invoice found
+      start: Start by generating a new invoice.
+      uuid: UUID
+      amount: Amount
+      emitter: Emitter
+      receiver: Receiver
+      emitted_at: Emitted Date
+      expires_at: Expires Date
+    persons:
+      name: Name
+      rfc: RFC
+  device:
+    sign_out: Sign out
+    log_in: Log in
