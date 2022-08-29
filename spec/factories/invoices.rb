@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :invoice do
+    cfdi_digital_stamp { FFaker::DizzleIpsum.characters }
     user { create(:user) }
     invoice_uuid { Faker::Invoice.reference }
     emitter { create(:person) }

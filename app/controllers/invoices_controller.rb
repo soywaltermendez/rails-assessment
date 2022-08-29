@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require './app/jobs/invoice_import_job/'
+require 'rqrcode'
 
 class InvoicesController < ApplicationController
-  before_action :set_invoice, only: %i[show edit update destroy]
+  before_action :set_invoice, only: %i[show edit update destroy qr]
   before_action :handle_filter, only: :index
 
   def index
@@ -31,19 +32,16 @@ class InvoicesController < ApplicationController
   end
 
   def create
-    invoice = params[:invoice]
-    emitter = Person.find_or_create_by(name: invoice[:emitter])
-    receiver = Person.find_or_create_by(name: invoice[:receiver])
     invoice_json = {
       user: current_user,
-      emitter:,
-      receiver:,
-      invoice_uuid: invoice[:invoice_uuid],
-      cfdi_digital_stamp: invoice[:cfdi_digital_stamp],
-      amount_cents: invoice[:amount_cents],
-      amount_currency: invoice[:amount_currency],
-      emitted_at: invoice[:emitted_at],
-      expires_at: invoice[:expires_at]
+      emitter: Person.find_or_create_by(name: invoice_params[:emitter]),
+      receiver: Person.find_or_create_by(name: invoice_params[:receiver]),
+      invoice_uuid: invoice_params[:invoice_uuid],
+      cfdi_digital_stamp: invoice_params[:cfdi_digital_stamp],
+      amount_cents: invoice_params[:amount_cents],
+      amount_currency: invoice_params[:amount_currency],
+      emitted_at: invoice_params[:emitted_at],
+      expires_at: invoice_params[:expires_at]
     }
 
     @invoice = Invoice.create(invoice_json)
@@ -54,12 +52,9 @@ class InvoicesController < ApplicationController
   def edit; end
 
   def update
-    emitter = Person.find_or_create_by(name: invoice_params[:emitter])
-    receiver = Person.find_or_create_by(name: invoice_params[:receiver])
-
     invoice_json = {
-      emitter:,
-      receiver:,
+      emitter: Person.find_or_create_by(name: invoice_params[:emitter]),
+      receiver: Person.find_or_create_by(name: invoice_params[:receiver]),
       invoice_uuid: invoice_params[:invoice_uuid],
       cfdi_digital_stamp: invoice_params[:cfdi_digital_stamp],
       amount_cents: invoice_params[:amount_cents],
@@ -79,6 +74,24 @@ class InvoicesController < ApplicationController
   def destroy
     @invoice.destroy
     redirect_to root_path, flash: { success: I18n.t('model.invoice.destroy') }
+  end
+
+  def qr
+    if @invoice.cfdi_digital_stamp.present?
+      qrcode = RQRCode::QRCode.new(@invoice.cfdi_digital_stamp)
+      @qr_image = qrcode.as_png(
+        bit_depth: 1,
+        border_modules: 4,
+        color_mode: ChunkyPNG::COLOR_GRAYSCALE,
+        color: "black",
+        file: nil,
+        fill: "white",
+        module_px_size: 6,
+        resize_exactly_to: false,
+        resize_gte_to: false,
+        size: 120
+      )
+    end
   end
 
   private

@@ -66,6 +66,7 @@
               <td class="text-right">
                 <%= link_to I18n.t("views.forms.see"), invoice, class: "dropdown-item" %>
                 <%= link_to I18n.t("views.forms.edit"), edit_invoice_path(invoice), class: "dropdown-item" %>
+                <%= link_to I18n.t("views.forms.qr"), qr_invoice_path(invoice), class: "dropdown-item" %>
                 <%= link_to I18n.t("views.forms.delete"), invoice_path(invoice), class: "dropdown-item", method: :delete, data: { confirm: "¿Are you sure?" } %>
               </td>
             </tr>

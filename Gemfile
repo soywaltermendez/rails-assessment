@@ -63,3 +63,4 @@ gem 'faker'
 gem 'net-smtp', require: false
 gem 'rails-controller-testing'
 gem 'will_paginate', '~> 3.3'
+gem 'rqrcode', '~> 2.0'

@@ -54,6 +54,7 @@ en:
       max: Max amount
       btn: Search
     forms:
+      qr: QR
       save: Save
       cancel: Cancel
       see: See
@@ -63,6 +64,7 @@ en:
     invoices:
       input: Upload your xml files
       new: New Invoice
+      edit: Edit Invoice
       import: Import Invoices
       not_fount: No invoice found
       start: Start by generating a new invoice.

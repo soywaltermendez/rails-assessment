@@ -103,4 +103,13 @@ RSpec.describe InvoicesController, type: :controller do
       end.to change(Invoice, :count).by(-1)
     end
   end
+
+  describe '#qr' do
+    it 'render qr' do
+      invoice = create(:invoice, user: @user)
+      get :qr, params: { use_route: 'invoices', id: invoice.id }
+      expect(response).to have_http_status(:ok)
+      expect(response).to render_template('qr')
+    end
+  end
 end

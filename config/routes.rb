@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   root to: 'invoices#index'
 
   resources :invoices do
+    member do
+      get :qr
+    end
+
     collection do
       get :import, to: 'invoices#import'
       post :import, to: 'invoices#upload'
