@@ -24,7 +24,7 @@ Bundler.require(*Rails.groups)
 module TechTests
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 6.0
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -39,5 +39,6 @@ module TechTests
     # Skip views, helpers and assets when generating a new resource.
     config.active_job.queue_adapter = :delayed_job
     config.i18n.default_locale = :en
+    config.autoloader = :classic
   end
 end
