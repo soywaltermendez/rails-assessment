@@ -9,8 +9,4 @@ Rails.application.routes.draw do
 
   resources :invoices
   resources :people, only: :show
-
-  # Uncomment to use React
-  # root to: 'react_app#index'
-  # get '*path', to: 'react_app#index'
 end

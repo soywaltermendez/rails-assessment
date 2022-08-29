@@ -11,6 +11,9 @@ gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+gem 'webpacker', '~> 5.0'
+gem 'sass-rails'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -58,3 +61,4 @@ gem "delayed_job_active_record", "~> 4.1"
 gem 'daemons'
 gem "faker"
 gem "rails-controller-testing"
+gem 'net-smtp', require: false
