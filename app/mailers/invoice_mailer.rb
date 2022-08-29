@@ -5,7 +5,7 @@ class InvoiceMailer < ApplicationMailer
     mail(to: email, subject: I18n.t("invoice_mailer.confirmation.subject"))
   end
 
-  def error(email, exception)
+  def error(email, exception = nil)
     @exception = exception
     mail(to: email, subject: I18n.t("invoice_mailer.error.subject"))
   end

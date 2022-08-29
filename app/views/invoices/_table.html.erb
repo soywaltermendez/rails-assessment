@@ -6,7 +6,8 @@
       <h1 class="banner-title vertical-align p-0 m-0 float-left">
         <%= I18n.t("model.invoice.plural") %>
       </h1>
-      <%= link_to I18n.t("views.invoices.new"), new_invoice_path, class: "btn btn-primary jumping float-right" %>
+      <%= link_to I18n.t("views.invoices.new"), new_invoice_path, class: "btn btn-primary float-right m-1" %>
+      <%= link_to I18n.t("views.invoices.import"), import_invoices_path, class: "btn btn-primary float-right m-1" %>
     </div>
   </div>
   <% if @invoices.empty? %>
@@ -16,7 +17,8 @@
         <br/>
         <%= I18n.t("views.invoices.start") %>
         <div class="text-center mt-3">
-          <%= link_to I18n.t("views.invoices.new"), new_invoice_path, class: "btn btn-primary jumping" %>
+          <%= link_to I18n.t("views.invoices.new"), new_invoice_path, class: "btn btn-primary m-1" %>
+          <%= link_to I18n.t("views.invoices.import"), import_invoices_path, class: "btn btn-primary m-1" %>
         </div>
       </p>
     </div>
@@ -63,6 +65,7 @@
               </td>
               <td class="text-right">
                 <%= link_to I18n.t("views.forms.see"), invoice, class: "dropdown-item" %>
+                <%= link_to I18n.t("views.forms.edit"), edit_invoice_path(invoice), class: "dropdown-item" %>
                 <%= link_to I18n.t("views.forms.delete"), invoice_path(invoice), class: "dropdown-item", method: :delete, data: { confirm: "¿Are you sure?" } %>
               </td>
             </tr>
@@ -73,7 +76,8 @@
     <%= will_paginate(@invoices, renderer: WillPaginate::ActionView::LinkRenderer, previous_label: "Anterior", next_label: "Siguiente") %>
     <div class="text-center mt-3">
       <div class="w-25 d-inline-block">
-        Showing #{select_tag :per_page, options_for_select([5, 10, 20, 50, 100], @per_page), onchange: "if(this.value){window.location='?per_page='+this.value;}"} per page
+        Showing <%= select_tag :per_page, options_for_select([5, 10, 20, 50, 100], @per_page),
+                               onchange: "if(this.value){window.location='?per_page='+this.value;}" %> per page
       </div>
     </div>
   <% end %>

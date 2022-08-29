@@ -60,6 +60,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     awesome_print (1.9.2)
     bcrypt (3.1.18)
@@ -67,6 +69,15 @@ GEM
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+    capybara (3.37.1)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     daemons (1.4.1)
@@ -112,6 +123,7 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
+    matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.2)
@@ -130,6 +142,7 @@ GEM
     parser (3.1.2.1)
       ast (~> 2.4.1)
     pg (1.4.2)
+    public_suffix (5.0.0)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -261,6 +274,8 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     will_paginate (3.3.1)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.6.0)
 
 PLATFORMS
@@ -271,6 +286,7 @@ DEPENDENCIES
   awesome_print
   bootsnap (>= 1.4.4)
   byebug
+  capybara
   daemons
   database_cleaner-active_record
   delayed_job_active_record (~> 4.1)

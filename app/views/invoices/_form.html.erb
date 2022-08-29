@@ -15,9 +15,44 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="form-group files color">
-      <%= form.label :xmls, I18n.t("views.invoices.input"), class: "sr-only", for: "xmls" %>
-      <%= form.file_field :xmls, name: "xmls[]", multiple: true, type: "file", accept: "text/xml", class: "form-control" %>
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :invoice_uuid, "UUID" %>
+      <%= form.text_field :invoice_uuid, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :cfdi_digital_stamp, "CFDI" %>
+      <%= form.text_field :cfdi_digital_stamp, class: "form-control", required: false %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :amount_cents, "Amount Cents" %>
+      <%= form.text_field :amount_cents, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :amount_currency, "Amount Currency" %>
+      <%= form.text_field :amount_currency, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :emitter, "Emmiter" %>
+      <%= form.text_field :emitter, { class: "form-control", required: true, value: invoice&.emitter&.name } %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :receiver, "Receiver" %>
+      <%= form.text_field :receiver, { class: "form-control", required: true, value: invoice&.receiver&.name } %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :emitted_at, "Emitted Date" %>
+      <%= form.date_field :emitted_at, { class: "form-control", required: true } %>
+    </div>
+
+    <div class="form-group col-sm-12 col-md-6">
+      <%= form.label :expires_at, "Expired Date" %>
+      <%= form.date_field :expires_at, { class: "form-control flatpickr", required: true } %>
     </div>
   </div>
   <div class="actions pt-3">
