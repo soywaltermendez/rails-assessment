@@ -30,6 +30,7 @@ class InvoiceImportJob < ApplicationJob
     if xml.key?(:hash)
       xml_json = xml[:hash]
       validate_invoice_info(:invoice_uuid, xml_json)
+      validate_invoice_info(:cfdi_digital_stamp, xml_json)
       validate_invoice_info(:amount_cents, xml_json)
       validate_invoice_info(:amount_currency, xml_json)
       validate_invoice_info(:emitted_at, xml_json)
