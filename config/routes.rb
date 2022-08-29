@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   resources :invoices do
     collection do
-      get :import, to: "invoices#import"
-      post :import, to: "invoices#upload"
+      get :import, to: 'invoices#import'
+      post :import, to: 'invoices#upload'
     end
   end
   resources :people, only: :show

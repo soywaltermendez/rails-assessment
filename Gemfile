@@ -11,8 +11,8 @@ gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
-gem 'webpacker', '~> 5.0'
 gem 'sass-rails'
+gem 'webpacker', '~> 5.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
@@ -36,9 +36,9 @@ group :development, :test do
   gem 'database_cleaner-active_record'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'ffaker'
-  gem 'capybara'
   gem 'rspec-rails'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rspec', require: false
@@ -56,10 +56,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "devise", "~> 4.8"
-gem 'will_paginate', '~> 3.3'
-gem "delayed_job_active_record", "~> 4.1"
 gem 'daemons'
-gem "faker"
-gem "rails-controller-testing"
+gem 'delayed_job_active_record', '~> 4.1'
+gem 'devise', '~> 4.8'
+gem 'faker'
 gem 'net-smtp', require: false
+gem 'rails-controller-testing'
+gem 'will_paginate', '~> 3.3'

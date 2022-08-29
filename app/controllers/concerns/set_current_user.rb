@@ -8,9 +8,8 @@ module SetCurrentUser
   end
 
   private
-    def set_current_user
-      if current_user.present?
-        Current.user = current_user
-      end
-    end
+
+  def set_current_user
+    Current.user = current_user if current_user.present?
+  end
 end

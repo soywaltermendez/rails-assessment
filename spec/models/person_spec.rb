@@ -8,7 +8,7 @@ RSpec.describe Person, type: :model do
   end
 
   it 'is valid total invoice amount' do
-    @person=create(:person)
+    @person = create(:person)
     expect(@person.emitted_amount).to eq({})
   end
 end
