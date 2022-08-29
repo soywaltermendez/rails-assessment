@@ -61,6 +61,7 @@ gem 'delayed_job_active_record', '~> 4.1'
 gem 'devise', '~> 4.8'
 gem 'faker'
 gem 'net-smtp', require: false
+gem 'net-pop', require: false
 gem 'rails-controller-testing'
 gem 'will_paginate', '~> 3.3'
 gem 'rqrcode', '~> 2.0'
