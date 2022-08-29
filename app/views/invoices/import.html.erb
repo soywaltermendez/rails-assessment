@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h1 class="vertical-align p-0 m-0">
+        <%= I18n.t("model.invoice.plural") %>
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <hr class="divider"/>
+</div>
+<div class="container">
+  <%= form_with(local: true) do |form| %>
+    <div class="row">
+      <div class="form-group files color">
+        <%= form.label :xmls, I18n.t("views.invoices.input"), class: "sr-only", for: "xmls" %>
+        <%= form.file_field :xmls, name: "xmls[]", multiple: true, type: "file", accept: "text/xml", class: "form-control" %>
+      </div>
+    </div>
+    <div class="actions pt-3">
+      <%= link_to I18n.t("views.forms.cancel"), root_path, class: "btn btn-secondary" %>
+      <%= form.submit I18n.t("views.forms.save"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

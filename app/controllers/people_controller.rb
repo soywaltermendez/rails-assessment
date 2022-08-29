@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :destroy]
+  before_action :set_person, only: %i[show destroy]
   before_action :handle_filter, only: :show
 
   # GET /people/1

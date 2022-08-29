@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h1 class="vertical-align p-0 m-0">
+        <%= I18n.t("model.invoice.plural") %>
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <hr class="divider"/>
+</div>
+<div class="container text-center">
+  <% if @invoice.cfdi_digital_stamp.present? %>
+    <img src="<%= @qr_image.to_data_url %>" />
+  <% else %>
+    <%= link_to I18n.t("views.invoices.edit"), edit_invoice_path(@invoice), class: "btn btn-primary m-1" %>
+  <% end %>
+</div>

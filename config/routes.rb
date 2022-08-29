@@ -7,10 +7,15 @@ Rails.application.routes.draw do
   # Comment out to use React
   root to: 'invoices#index'
 
-  resources :invoices
-  resources :people, only: :show
+  resources :invoices do
+    member do
+      get :qr
+    end
 
-  # Uncomment to use React
-  # root to: 'react_app#index'
-  # get '*path', to: 'react_app#index'
+    collection do
+      get :import, to: 'invoices#import'
+      post :import, to: 'invoices#upload'
+    end
+  end
+  resources :people, only: :show
 end
